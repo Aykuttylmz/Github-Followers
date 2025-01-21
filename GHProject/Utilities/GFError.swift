@@ -1,8 +1,8 @@
 //
-//  ErrorMessage.swift
+//  GFError.swift
 //  GHProject
 //
-//  Created by Aykut Türkyılmaz on 31.12.2024.
+//  Created by Aykut Türkyılmaz on 9.01.2025.
 //
 
 import Foundation
