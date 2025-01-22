@@ -7,6 +7,12 @@
 
 import UIKit
 
+protocol UserInfoVCDelegate: AnyObject {
+    func didTapGithubProfile()
+    func didTapGetFollowers()
+}
+
+
 class UserInfoVC: UIViewController {
     
     let headerView = UIView()
@@ -16,7 +22,8 @@ class UserInfoVC: UIViewController {
     var itemViews: [UIView] = []
     
     var username: String!
-
+    var delegate: UserInfoVCDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
@@ -53,15 +60,27 @@ class UserInfoVC: UIViewController {
             switch result {
             case.success(let user):
                 DispatchQueue.main.async {
-                    self.add(childVC: GFUserInfoHeaderVCViewController(user: user), to: self.headerView)
-                    self.add(childVC: GFRepoItemVC(user: user), to: self.itemViewOne)
-                    self.add(childVC: GFFollowerItemVc(user: user), to: self.itemViewTwo)
-                    self.dateLabel.text = "Github since: \(user.createdAt.convertToDisplayFormat())"
+                    self.configureUIElements(with: user)
                 }
             case.failure(let error):
                 self.presentGFAlertOnMainThread(title: "something went wrong", message: error.rawValue, buttonTitle: "Ok")
             }
         }
+    }
+    
+    
+    func configureUIElements(with user: User) {
+        
+        let repoItemVC = GFRepoItemVC(user: user)
+        repoItemVC.delegate = self
+        
+        let followerItemVC = GFFollowerItemVC(user: user)
+        followerItemVC.delegate = self
+        
+        self.add(childVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
+        self.add(childVC: GFRepoItemVC(user: user), to: self.itemViewOne)
+        self.add(childVC: GFFollowerItemVC(user: user), to: self.itemViewTwo)
+        self.dateLabel.text = "Github since: \(user.createdAt.convertToDisplayFormat())"
     }
     
     
@@ -99,4 +118,17 @@ class UserInfoVC: UIViewController {
     }
 
 
+}
+
+extension UserInfoVC: UserInfoVCDelegate {
+    
+    func didTapGithubProfile() {
+        print("button tapped")
+    }
+    
+    func didTapGetFollowers() {
+        //dismiss
+    }
+    
+    
 }
