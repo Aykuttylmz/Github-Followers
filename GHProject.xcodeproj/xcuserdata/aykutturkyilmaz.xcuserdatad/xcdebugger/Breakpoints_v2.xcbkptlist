@@ -18,50 +18,6 @@
             endingLineNumber = "17"
             landmarkName = "GFUserInfoHeaderVCViewController"
             landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "3DA9A736-CCE2-4F94-A3CC-C7894CDEAFEF - f80c9d75d3904cf9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GHProject.GFUserInfoHeaderVCViewController.bioLabel.getter : GHProject.GFBodyLabel"
-                  moduleName = "GHProject.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aykutturkyilmaz/Codes/Github-Followers/GHProject/Custom%20Views/ViewControllers/GFUserInfoHeaderVCViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0">
-               </Location>
-               <Location
-                  uuid = "3DA9A736-CCE2-4F94-A3CC-C7894CDEAFEF - 6dccf0cd437abdb0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GHProject.GFUserInfoHeaderVCViewController.init(user: GHProject.User) -&gt; GHProject.GFUserInfoHeaderVCViewController"
-                  moduleName = "GHProject.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aykutturkyilmaz/Codes/Github-Followers/GHProject/Custom%20Views/ViewControllers/GFUserInfoHeaderVCViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17">
-               </Location>
-               <Location
-                  uuid = "3DA9A736-CCE2-4F94-A3CC-C7894CDEAFEF - 4421fba0b233e581"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GHProject.GFUserInfoHeaderVCViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;GHProject.GFUserInfoHeaderVCViewController&gt;"
-                  moduleName = "GHProject.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aykutturkyilmaz/Codes/Github-Followers/GHProject/Custom%20Views/ViewControllers/GFUserInfoHeaderVCViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

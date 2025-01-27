@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import SafariServices
 
 protocol UserInfoVCDelegate: AnyObject {
-    func didTapGithubProfile()
-    func didTapGetFollowers()
+    func didTapGithubProfile(for user: User)
+    func didTapGetFollowers(for user: User)
 }
 
 
@@ -22,7 +23,7 @@ class UserInfoVC: UIViewController {
     var itemViews: [UIView] = []
     
     var username: String!
-    var delegate: UserInfoVCDelegate!
+    weak var delegate: FollowerListVCDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,9 +78,10 @@ class UserInfoVC: UIViewController {
         let followerItemVC = GFFollowerItemVC(user: user)
         followerItemVC.delegate = self
         
+        
         self.add(childVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
-        self.add(childVC: GFRepoItemVC(user: user), to: self.itemViewOne)
-        self.add(childVC: GFFollowerItemVC(user: user), to: self.itemViewTwo)
+        self.add(childVC: repoItemVC, to: self.itemViewOne)
+        self.add(childVC: followerItemVC, to: self.itemViewTwo)
         self.dateLabel.text = "Github since: \(user.createdAt.convertToDisplayFormat())"
     }
     
@@ -122,12 +124,21 @@ class UserInfoVC: UIViewController {
 
 extension UserInfoVC: UserInfoVCDelegate {
     
-    func didTapGithubProfile() {
-        print("button tapped")
+    func didTapGithubProfile(for user: User) {
+        guard let url = URL(string: user.htmlUrl) else {
+            presentGFAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid", buttonTitle: "Ok")
+            return
+        }
+        presentSafariVC(with: url)
     }
     
-    func didTapGetFollowers() {
-        //dismiss
+    func didTapGetFollowers(for user: User) {
+        guard user.followers != 0 else {
+            presentGFAlertOnMainThread(title: "No Followers", message: "This user has no followers.", buttonTitle: "Ok")
+            return
+        }
+        delegate.didRequestFollowers(for: user.login)
+        dismissVC()
     }
     
     

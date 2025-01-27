@@ -19,6 +19,7 @@ class FollowerCell: UICollectionViewCell {
         configure()
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -29,6 +30,7 @@ class FollowerCell: UICollectionViewCell {
         avatarImageView.downloadImage(from: follower.avatarUrl)
         
     }
+    
     
     private func configure() {
         addSubview(avatarImageView)
